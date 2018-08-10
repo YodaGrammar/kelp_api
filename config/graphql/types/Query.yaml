@@ -1,0 +1,10 @@
+Query:
+    type: object
+    config:
+        fields:
+            StorageType:
+                type: "StorageType"
+                resolve: "@=resolver('StorageType')"
+            Storages:
+                type: "[Storage]"
+                resolve: "@=resolver('Storages')"

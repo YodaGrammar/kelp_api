@@ -1,0 +1,6 @@
+StorageType:
+  type: object
+  config:
+      fields:
+          name:
+            type: "String!"
