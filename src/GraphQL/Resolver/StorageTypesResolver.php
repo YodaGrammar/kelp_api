@@ -6,7 +6,7 @@ use App\Repository\StorageTypeRepository;
 use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
 use Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface;
 
-class StorageTypeResolver implements ResolverInterface, AliasedInterface
+class StorageTypesResolver implements ResolverInterface, AliasedInterface
 {
     /** @var StorageTypeRepository */
     private $repository;
@@ -16,9 +16,9 @@ class StorageTypeResolver implements ResolverInterface, AliasedInterface
         $this->repository = $repository;
     }
 
-    public function resolve(int $id)
+    public function resolve()
     {
-        return $this->repository->find($id);
+        return $this->repository->findAll();
     }
 
     /**
@@ -27,7 +27,7 @@ class StorageTypeResolver implements ResolverInterface, AliasedInterface
     public static function getAliases()
     {
         return [
-            'resolve' => 'StorageType',
+            'resolve' => 'StorageTypes',
         ];
     }
 }

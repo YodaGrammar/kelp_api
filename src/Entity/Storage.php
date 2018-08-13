@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Ramsey\Uuid\UuidInterface;
 
@@ -47,7 +48,7 @@ class Storage
     private $owner;
 
     /**
-     * @var ArrayCollection
+     * @var PersistentCollection
      *
      * @ORM\OneToMany(targetEntity="Product", mappedBy="storage")
      */
@@ -94,7 +95,7 @@ class Storage
         return $this->owner;
     }
 
-    public function getProducts(): ArrayCollection
+    public function getProducts(): PersistentCollection
     {
         return $this->products;
     }

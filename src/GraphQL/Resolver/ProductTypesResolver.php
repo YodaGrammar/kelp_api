@@ -2,23 +2,23 @@
 
 namespace App\GraphQL\Resolver;
 
-use App\Repository\StorageRepository;
+use App\Repository\ProductTypeRepository;
 use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
 use Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface;
 
-class StoragesResolver implements ResolverInterface, AliasedInterface
+class ProductTypesResolver implements ResolverInterface, AliasedInterface
 {
-    /** @var StorageRepository */
+    /** @var ProductTypeRepository */
     private $repository;
 
-    public function __construct(StorageRepository $repository)
+    public function __construct(ProductTypeRepository $repository)
     {
         $this->repository = $repository;
     }
 
-    public function resolve($userId)
+    public function resolve()
     {
-        return $this->repository->findByOwner($userId);
+        return $this->repository->findAll();
     }
 
     /**
@@ -27,7 +27,7 @@ class StoragesResolver implements ResolverInterface, AliasedInterface
     public static function getAliases()
     {
         return [
-            'resolve' => 'Storages',
+            'resolve' => 'ProductTypes',
         ];
     }
 }

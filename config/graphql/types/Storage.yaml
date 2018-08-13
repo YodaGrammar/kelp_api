@@ -2,15 +2,17 @@ Storage:
   type: object
   config:
       fields:
+          id:
+            type: "String!"
           name:
               type: "String!"
-#          type:
-#              type: "StorageType!"
-#          owner:
-#              type: "User!"
-#          products:
-#              type: "[Product]"
-#          createdAt:
-#              type: "Date!"
-#          updatedAt:
-#              type: "Date"
+          type:
+              type: "StorageType!"
+          owner:
+              type: "User!"
+          products:
+              type: "[Product]"
+          createdAt:
+              type: "Date!"
+          updatedAt:
+              type: "Date"

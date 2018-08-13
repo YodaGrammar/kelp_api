@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * @ORM\Entity
@@ -11,11 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
 class Packaging
 {
     /**
-     * @var int
+     * @var UuidInterface
      *
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
     private $id;
 
@@ -26,7 +28,7 @@ class Packaging
      */
     private $name;
 
-    public function getId(): int
+    public function getId(): UuidInterface
     {
         return $this->id;
     }

@@ -2,9 +2,27 @@ Query:
     type: object
     config:
         fields:
-            StorageType:
-                type: "StorageType"
-                resolve: "@=resolver('StorageType')"
+            Packagings:
+                type: "[Packaging]"
+                resolve: "@=resolver('Packagings')"
+            ProductTypes:
+                type: "[ProductType]"
+                resolve: "@=resolver('ProductTypes')"
+            StorageTypes:
+                type: "[StorageType]"
+                resolve: "@=resolver('StorageTypes')"
+
             Storages:
                 type: "[Storage]"
-                resolve: "@=resolver('Storages')"
+                args:
+                    userId:
+                        description: "Resolves Storage using user id of Owner."
+                        type: "String"
+                resolve: "@=resolver('Storages', [args['userId']])"
+            Products:
+                type: "[Product]"
+                args:
+                    storageId:
+                        description: "Resolves Products using storage id."
+                        type: "String"
+                resolve: "@=resolver('Products', [args['storageId']])"

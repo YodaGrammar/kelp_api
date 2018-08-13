@@ -2,21 +2,23 @@ Product:
     type: object
     config:
         fields:
+            id:
+                type: "String!"
             name:
                 type: "String!"
             description:
                 type: "String"
             quantity:
                 type: "Int!"
-#            expireAt:
-#                type: "Date"
-#            type:
-#                type: "ProductType!"
-#            packaging:
-#                type: "Packaging!"
-#            storage:
-#                type: "Storage!"
-#            createdAt:
-#                type: "Date!"
-#            updatedAt:
-#                type: "Date"
+            expireAt:
+                type: "Date"
+            type:
+                type: "ProductType!"
+            packaging:
+                type: "Packaging!"
+            storage:
+                type: "Storage!"
+            createdAt:
+                type: "Date!"
+            updatedAt:
+                type: "Date"
